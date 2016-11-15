@@ -1,3 +1,4 @@
+[![npm version](https://badge.fury.io/js/url-toolkit.svg)](https://badge.fury.io/js/url-toolkit)
 [![Build Status](https://travis-ci.org/tjenkinson/url-toolkit.svg?branch=master)](https://travis-ci.org/tjenkinson/url-toolkit)
 
 # URL Toolkit
