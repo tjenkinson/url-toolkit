@@ -61,7 +61,7 @@ describe('url toolkit', function() {
 });
 
 function test(base, relative, expected) {
-  it('"' + base + '"' + '"' + relative + '"', function() {
+  it('"' + base + '" + "' + relative + '"', function() {
     assert.strictEqual(URLToolkit.buildAbsoluteURL(base, relative), expected);
   });
 }
