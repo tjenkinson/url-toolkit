@@ -82,7 +82,7 @@
     }
   };
 
-
+  /* jshint ignore:start */
   if(typeof exports === 'object' && typeof module === 'object')
     module.exports = URLToolkit;
   else if(typeof define === 'function' && define.amd)
@@ -91,4 +91,5 @@
     exports["URLToolkit"] = URLToolkit;
   else
     root["URLToolkit"] = URLToolkit;
+  /* jshint ignore:end */
 })();
