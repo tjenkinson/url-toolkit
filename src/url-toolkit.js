@@ -1,4 +1,6 @@
+/* jshint ignore:start */
 (function(root) { 
+/* jshint ignore:end */
   var URLToolkit = {
     // build an absolute URL from a relative one using the provided baseURL
     // if relativeURL is an absolute URL it will be returned as is.
@@ -82,7 +84,7 @@
     }
   };
 
-  /* jshint ignore:start */
+/* jshint ignore:start */
   if(typeof exports === 'object' && typeof module === 'object')
     module.exports = URLToolkit;
   else if(typeof define === 'function' && define.amd)
@@ -91,5 +93,5 @@
     exports["URLToolkit"] = URLToolkit;
   else
     root["URLToolkit"] = URLToolkit;
-  /* jshint ignore:end */
 })(this);
+/* jshint ignore:end */
