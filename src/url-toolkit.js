@@ -1,4 +1,4 @@
-(function() { 
+(function(root) { 
   var URLToolkit = {
     // build an absolute URL from a relative one using the provided baseURL
     // if relativeURL is an absolute URL it will be returned as is.
@@ -92,4 +92,4 @@
   else
     root["URLToolkit"] = URLToolkit;
   /* jshint ignore:end */
-})();
+})(this);
