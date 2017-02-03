@@ -1,6 +1,6 @@
 {
   "name": "url-toolkit",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Build an absolute URL from a base URL and a relative URL. No dependencies!",
   "main": "src/url-toolkit.js",
   "directories": {
