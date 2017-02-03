@@ -14,6 +14,10 @@ describe('url toolkit', function() {
     test('http://a.com:8080/b/cd/e.m3u8', 'z.ts', 'http://a.com:8080/b/cd/z.ts');
     test('http://a.com/b/cd/', 'z.ts', 'http://a.com/b/cd/z.ts');
     test('http://a.com/b/cd', 'z.ts', 'http://a.com/b/z.ts');
+    test('http://a.com/', 'z.ts', 'http://a.com/z.ts');
+    test('http://a.com/?test=1', 'z.ts', 'http://a.com/z.ts');
+    test('http://a.com', 'z.ts', 'http://a.com/z.ts');
+    test('http://a.com?test=1', 'z.ts', 'http://a.com/z.ts');
     test('http://a.com/b/cd?test=1', 'z.ts', 'http://a.com/b/z.ts');
     test('http://a.com/b/cd#something', 'z.ts', 'http://a.com/b/z.ts');
     test('http://a.com/b/cd?test=1#something', 'z.ts', 'http://a.com/b/z.ts');

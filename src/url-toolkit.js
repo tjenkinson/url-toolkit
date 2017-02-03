@@ -35,7 +35,7 @@
         baseURL = baseURLQuerySplit[1];
       }
 
-      var baseURLDomainSplit = /^(([a-z]+:)?\/\/[a-z0-9\.\-_~]+(:[0-9]+)?)?(\/.*)$/i.exec(baseURL);
+      var baseURLDomainSplit = /^(([a-z]+:)?\/\/[a-z0-9\.\-_~]+(:[0-9]+)?)?(\/?.*)$/i.exec(baseURL);
       if (!baseURLDomainSplit) {
         throw new Error('Error trying to parse base URL.');
       }
@@ -44,8 +44,12 @@
       var baseURLProtocol = baseURLDomainSplit[2] || '';
       // e.g. 'http://example.com', '//example.com', ''
       var baseURLProtocolDomain = baseURLDomainSplit[1] || '';
-      // e.g. '/a/b/c/playlist.m3u8'
+      // e.g. '/a/b/c/playlist.m3u8', 'a/b/c/playlist.m3u8'
       var baseURLPath = baseURLDomainSplit[4];
+      if (baseURLPath.indexOf('/') !== 0) {
+        // this handles a base url of http://example.com (missing last slash)
+        baseURLPath = '/'+baseURLPath;
+      }
 
       var builtURL = null;
       if (/^\/\//.test(relativeURL)) {
