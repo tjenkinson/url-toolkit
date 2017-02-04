@@ -35,7 +35,7 @@
         baseURL = baseURLQuerySplit[1];
       }
 
-      var baseURLDomainSplit = /^(([a-z]+:)?\/\/[a-z0-9\.\-_~]+(:[0-9]+)?)?(\/?.*)$/i.exec(baseURL);
+      var baseURLDomainSplit = /^(([a-z]+:)?\/\/[^:\/]+(:[0-9]+)?)?(\/?.*)$/i.exec(baseURL);
       if (!baseURLDomainSplit) {
         throw new Error('Error trying to parse base URL.');
       }

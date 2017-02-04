@@ -61,6 +61,11 @@ describe('url toolkit', function() {
     test('/a/b/cd/e.m3u8', 'https://example.com:8080/z.ts', 'https://example.com:8080/z.ts');
     test('/a/b/cd/e.m3u8', 'z.ts', '/a/b/cd/z.ts');
     test('/a/b/cd/e.m3u8', '../../../z.ts', '/z.ts');
+
+    test('http://ö.de/a/b', 'z.ts', 'http://ö.de/a/z.ts');
+    test('http://ö.de/a', 'z.ts', 'http://ö.de/z.ts');
+    test('http://ö.de/', 'z.ts', 'http://ö.de/z.ts');
+    test('http://ö.de', 'z.ts', 'http://ö.de/z.ts');
   });
 });
 
