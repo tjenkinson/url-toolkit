@@ -1,6 +1,11 @@
 /* jshint ignore:start */
 (function(root) { 
 /* jshint ignore:end */
+
+  var HASH_SPLIT = /^([^#]*)(.*)$/;
+  var QUERY_SPLIT = /^([^\?]*)(.*)$/;
+  var DOMAIN_SPLIT = /^(([a-z]+:\/\/)?[^:\/]+(?::[0-9]+)?)?(\/?.*)$/i;
+
   var URLToolkit = {
     // build an absolute URL from a relative one using the provided baseURL
     // if relativeURL is an absolute URL it will be returned as is.
@@ -15,27 +20,27 @@
       var relativeURLQuery = null;
       var relativeURLHash = null;
 
-      var relativeURLHashSplit = /^([^#]*)(.*)$/.exec(relativeURL);
+      var relativeURLHashSplit = HASH_SPLIT.exec(relativeURL);
       if (relativeURLHashSplit) {
         relativeURLHash = relativeURLHashSplit[2];
         relativeURL = relativeURLHashSplit[1];
       }
-      var relativeURLQuerySplit = /^([^\?]*)(.*)$/.exec(relativeURL);
+      var relativeURLQuerySplit = QUERY_SPLIT.exec(relativeURL);
       if (relativeURLQuerySplit) {
         relativeURLQuery = relativeURLQuerySplit[2];
         relativeURL = relativeURLQuerySplit[1];
       }
 
-      var baseURLHashSplit = /^([^#]*).*$/.exec(baseURL);
+      var baseURLHashSplit = HASH_SPLIT.exec(baseURL);
       if (baseURLHashSplit) {
         baseURL = baseURLHashSplit[1];
       }
-      var baseURLQuerySplit = /^([^\?]*).*$/.exec(baseURL);
+      var baseURLQuerySplit = QUERY_SPLIT.exec(baseURL);
       if (baseURLQuerySplit) {
         baseURL = baseURLQuerySplit[1];
       }
 
-      var baseURLDomainSplit = /^(([a-z]+:\/\/)?[^:\/]+(?::[0-9]+)?)?(\/?.*)$/i.exec(baseURL);
+      var baseURLDomainSplit = DOMAIN_SPLIT.exec(baseURL);
       if (!baseURLDomainSplit) {
         throw new Error('Error trying to parse base URL.');
       }
