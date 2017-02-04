@@ -46,7 +46,7 @@
       var baseURLProtocolDomain = baseURLDomainSplit[1] || '';
       // e.g. '/a/b/c/playlist.m3u8', 'a/b/c/playlist.m3u8'
       var baseURLPath = baseURLDomainSplit[4];
-      if (baseURLPath.indexOf('/') !== 0) {
+      if (baseURLPath.indexOf('/') !== 0 && baseURLProtocolDomain !== '') {
         // this handles a base url of http://example.com (missing last slash)
         baseURLPath = '/'+baseURLPath;
       }

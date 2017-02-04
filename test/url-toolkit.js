@@ -31,6 +31,9 @@ describe('url toolkit', function() {
     test('http://a.b.com/b/cd?test=1#something', 'g;x', 'http://a.b.com/b/g;x');
     test('http://a~b.com/b/cd?test=1#something', 'g;x', 'http://a~b.com/b/g;x');
 
+    test('a.com/b/cd', 'z.ts', 'a.com/b/z.ts');
+    test('a.com/b/cd', '../z.ts', 'a.com/z.ts');
+
     test('http://a.com/b/cd/e.m3u8?test=1#something', 'subdir/z.ts?abc=1#test', 'http://a.com/b/cd/subdir/z.ts?abc=1#test');
     test('http://a.com/b/cd/e.m3u8?test=1#something', '/subdir/z.ts?abc=1#test', 'http://a.com/subdir/z.ts?abc=1#test');
     test('http://a.com/b/cd/e.m3u8?test=1#something', '//example.com/z.ts?abc=1#test', 'http://example.com/z.ts?abc=1#test');
@@ -66,6 +69,7 @@ describe('url toolkit', function() {
     test('http://ö.de/a', 'z.ts', 'http://ö.de/z.ts');
     test('http://ö.de/', 'z.ts', 'http://ö.de/z.ts');
     test('http://ö.de', 'z.ts', 'http://ö.de/z.ts');
+    test('ö.de', 'z.ts', 'z.ts');
   });
 });
 
