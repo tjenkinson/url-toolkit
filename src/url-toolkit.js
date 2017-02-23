@@ -4,7 +4,7 @@
 
   var HASH_SPLIT = /^([^#]*)(.*)$/;
   var QUERY_SPLIT = /^([^\?]*)(.*)$/;
-  var DOMAIN_SPLIT = /^(([a-z]+:\/\/)?[^:\/]+(?::[0-9]+)?)?(\/?.*)$/i;
+  var DOMAIN_SPLIT = /^(((?:[a-z]+:)?\/\/)?[^:\/]+(?::[0-9]+)?)?(\/?.*)$/i;
 
   var URLToolkit = {
     // build an absolute URL from a relative one using the provided baseURL
@@ -45,8 +45,8 @@
         throw new Error('Error trying to parse base URL.');
       }
       
-      // e.g. 'http://', 'https://', ''
-      var baseURLProtocol = baseURLDomainSplit[2] || '';
+      // e.g. 'http://', 'https://', '//', ''
+      var baseURLProtocol = baseURLDomainSplit[2] || '//'; // if there is no protocol default to '//'
       // e.g. 'http://example.com', '//example.com', 'example.com', ''
       var baseURLProtocolDomain = baseURLDomainSplit[1] || '';
       // e.g. '/a/b/c/playlist.m3u8', 'a/b/c/playlist.m3u8'
@@ -58,7 +58,7 @@
 
       var builtURL = null;
       if (/^\/\//.test(relativeURL)) {
-        // relative url starts wth '//' so copy protocol (which may be '' if baseUrl didn't provide one)
+        // relative url starts wth '//' so copy protocol
         builtURL = baseURLProtocol+URLToolkit.buildAbsolutePath('', relativeURL.substring(2));
       }
       else if (/^\//.test(relativeURL)) {

@@ -35,6 +35,8 @@ describe('url toolkit', function() {
     test('a.com/', 'z.ts', 'a.com/z.ts');
     test('a.com/b/cd', 'z.ts', 'a.com/b/z.ts');
     test('a.com/b/cd', '../z.ts', 'a.com/z.ts');
+    test('a.com/b/cd', '/z.ts', 'a.com/z.ts');
+    test('a.com/b/cd', '/b/z.ts', 'a.com/b/z.ts');
 
     test('http://a.com/b/cd/e.m3u8?test=1#something', 'subdir/z.ts?abc=1#test', 'http://a.com/b/cd/subdir/z.ts?abc=1#test');
     test('http://a.com/b/cd/e.m3u8?test=1#something', '/subdir/z.ts?abc=1#test', 'http://a.com/subdir/z.ts?abc=1#test');
@@ -56,12 +58,16 @@ describe('url toolkit', function() {
     test('https://a-b.something.com/b/cd/e.m3u8?test=1#something', '//example.com/subdir/pointless/../z.ts?abc=1#test', 'https://example.com/subdir/z.ts?abc=1#test');
 
     test('//a.com/b/cd/e.m3u8', 'https://example.com/z.ts', 'https://example.com/z.ts');
+    test('//a.com/b/cd/e.m3u8', '//example.com/z.ts', '//example.com/z.ts');
+    test('//a.com/b/cd/e.m3u8', '/example.com/z.ts', '//a.com/example.com/z.ts');
     test('//a.com/b/cd/e.m3u8', 'g:h', 'g:h');
     test('//a.com/b/cd/e.m3u8', 'https://example.com:8080/z.ts', 'https://example.com:8080/z.ts');
     test('//a.com/b/cd/e.m3u8', 'z.ts', '//a.com/b/cd/z.ts');
     test('//a.com/b/cd/e.m3u8', '../../z.ts', '//a.com/z.ts');
 
     test('/a/b/cd/e.m3u8', 'https://example.com/z.ts', 'https://example.com/z.ts');
+    test('/a/b/cd/e.m3u8', '/example.com/z.ts', '/example.com/z.ts');
+    test('/a/b/cd/e.m3u8', '//example.com/z.ts', '//example.com/z.ts');
     test('/a/b/cd/e.m3u8', 'g:h', 'g:h');
     test('/a/b/cd/e.m3u8', 'https://example.com:8080/z.ts', 'https://example.com:8080/z.ts');
     test('/a/b/cd/e.m3u8', 'z.ts', '/a/b/cd/z.ts');
