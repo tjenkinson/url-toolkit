@@ -18,4 +18,4 @@ declare var URLToolkit: {
     buildURLFromParts: (parts: URLToolkit.URLParts) => string;
 };
 
-export default URLToolkit;
+export = URLToolkit;
