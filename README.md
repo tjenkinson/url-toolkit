@@ -11,8 +11,8 @@ Build an absolute URL from a relative and base one.
 By default the paths will not be normalized unless necessary, according to the spec. However you can ensure paths are always normalized by setting the `opts.alwaysNormalize` option to `true`.
 E.g.
 ```javascript
-URLToolkit.buildAbsoluteURL('http://a.com/b/cd', 'e/f/../g'); // => http://a.com/e/f/../g
-URLToolkit.buildAbsoluteURL('http://a.com/b/cd', 'e/f/../g', { alwaysNormalize: true }); // => http://a.com/e/g
+URLToolkit.buildAbsoluteURL('http://a.com/b/cd', 'e/f/../g'); // => http://a.com/b/e/f/../g
+URLToolkit.buildAbsoluteURL('http://a.com/b/cd', 'e/f/../g', { alwaysNormalize: true }); // => http://a.com/b/e/g
 ```
 ### `normalizePath(url)`
 Normalizes a path.
