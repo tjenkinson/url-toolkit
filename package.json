@@ -30,6 +30,6 @@
   "homepage": "https://github.com/tjenkinson/url-toolkit#readme",
   "devDependencies": {
     "jshint": "^2.9.4",
-    "mocha": "^3.1.2"
+    "mocha": "^4.0.1"
   }
 }
