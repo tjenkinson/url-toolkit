@@ -136,6 +136,10 @@ describe('url toolkit', function() {
     test('http://a/b/c/d;p?q', '..', 'http://a/b/');
 
     test('http://a.com/b/cd/e.m3u8?test=1#something', '', 'http://a.com/b/cd/e.m3u8?test=1#something');
+    
+    test('http://a.com/b/cd/e.m3u8?test=1#something', 'a_:b', 'http://a.com/b/cd/a_:b');
+    test('http://a.com/b/cd/e.m3u8?test=1#something', 'a:b', 'a:b');
+    test('http://a.com/b/cd/e.m3u8?test=1#something', './a:b', 'http://a.com/b/cd/a:b');
   });
 });
 
