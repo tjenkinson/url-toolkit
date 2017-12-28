@@ -13,6 +13,13 @@ Build an absolute URL from a relative and base one.
 URLToolkit.buildAbsoluteURL('http://a.com/b/cd', 'e/f/../g'); // => http://a.com/b/e/g
 ```
 
+If you want to ensure that the URL is treated as a relative one you should prefix it with `./`.
+
+```javascript
+URLToolkit.buildAbsoluteURL('http://a.com/b/cd', 'a:b'); // => a:b
+URLToolkit.buildAbsoluteURL('http://a.com/b/cd', './a:b'); // => http://a.com/b/a:b
+```
+
 By default the paths will not be normalized unless necessary, according to the spec. However you can ensure paths are always normalized by setting the `opts.alwaysNormalize` option to `true`.
 
 ```javascript
