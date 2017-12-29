@@ -4,7 +4,7 @@
 (function(root) { 
 /* jshint ignore:end */
 
-  var URL_REGEX = /^((?:[^\/;?#]+:)?)(\/\/[^\/\;?#]*)?(.*?)??(;.*?)?(\?.*?)?(#.*?)?$/;
+  var URL_REGEX = /^((?:[a-zA-Z0-9+\-.]+:)?)(\/\/[^\/\;?#]*)?(.*?)??(;.*?)?(\?.*?)?(#.*?)?$/;
   var FIRST_SEGMENT_REGEX = /^([^\/;?#]*)(.*)$/;
   var SLASH_DOT_REGEX = /(?:\/|^)\.(?=\/)/g;
   var SLASH_DOT_DOT_REGEX = /(?:\/|^)\.\.\/(?!\.\.\/).*?(?=\/)/g;
@@ -14,7 +14,7 @@
     // E.g
     // With opts.alwaysNormalize = false (default, spec compliant)
     // http://a.com/b/cd + /e/f/../g => http://a.com/e/f/../g
-    // With opts.alwaysNormalize = true (default, not spec compliant)
+    // With opts.alwaysNormalize = true (not spec compliant)
     // http://a.com/b/cd + /e/f/../g => http://a.com/e/g
     buildAbsoluteURL: function(baseURL, relativeURL, opts) {
       opts = opts || {};
