@@ -1,6 +1,6 @@
 {
   "name": "url-toolkit",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Build an absolute URL from a base URL and a relative URL (RFC 1808). No dependencies!",
   "main": "src/url-toolkit.js",
   "types": "src/url-toolkit.d.ts",
