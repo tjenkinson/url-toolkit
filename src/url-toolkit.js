@@ -29,7 +29,7 @@
           return baseURL;
         }
         var basePartsForNormalise = this.parseURL(baseURL);
-        if (!baseParts) {
+        if (!basePartsForNormalise) {
           throw new Error('Error trying to parse base URL.');
         }
         basePartsForNormalise.path = URLToolkit.normalizePath(basePartsForNormalise.path);
