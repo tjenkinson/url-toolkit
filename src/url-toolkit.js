@@ -28,14 +28,14 @@
         if (!opts.alwaysNormalize) {
           return baseURL;
         }
-        var basePartsForNormalise = this.parseURL(baseURL);
+        var basePartsForNormalise = URLToolkit.parseURL(baseURL);
         if (!basePartsForNormalise) {
           throw new Error('Error trying to parse base URL.');
         }
         basePartsForNormalise.path = URLToolkit.normalizePath(basePartsForNormalise.path);
         return URLToolkit.buildURLFromParts(basePartsForNormalise);
       }
-      var relativeParts = this.parseURL(relativeURL);
+      var relativeParts = URLToolkit.parseURL(relativeURL);
       if (!relativeParts) {
         throw new Error('Error trying to parse relative URL.');
       }
@@ -48,7 +48,7 @@
         relativeParts.path = URLToolkit.normalizePath(relativeParts.path);
         return URLToolkit.buildURLFromParts(relativeParts);
       }
-      var baseParts = this.parseURL(baseURL);
+      var baseParts = URLToolkit.parseURL(baseURL);
       if (!baseParts) {
         throw new Error('Error trying to parse base URL.');
       }
