@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/tjenkinson/url-toolkit#readme",
   "devDependencies": {
-    "jshint": "^2.9.4",
+    "jshint": "^2.9.6",
     "mocha": "^4.0.1"
   }
 }
