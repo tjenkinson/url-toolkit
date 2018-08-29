@@ -143,6 +143,8 @@ describe('url toolkit', function() {
     test('http://a.com/b/cd/e.m3u8?test=1#something', 'a_:b', 'http://a.com/b/cd/a_:b');
     test('http://a.com/b/cd/e.m3u8?test=1#something', 'a:b', 'a:b');
     test('http://a.com/b/cd/e.m3u8?test=1#something', './a:b', 'http://a.com/b/cd/a:b');
+
+    test('http://a.com/expiretime=111;dirmatch=true/master.m3u8', './a:b', 'http://a.com/expiretime=111;dirmatch=true/a:b');
   });
 });
 
