@@ -1,5 +1,5 @@
 [![npm version](https://badge.fury.io/js/url-toolkit.svg)](https://badge.fury.io/js/url-toolkit)
-[![Build Status](https://travis-ci.org/tjenkinson/url-toolkit.svg?branch=master)](https://travis-ci.org/tjenkinson/url-toolkit)
+[![Build Status](https://travis-ci.org/tjenkinson/url-toolkit.svg?branch=master)](https://travis-ci.org/tjenkinson/url-toolkit) [![Greenkeeper badge](https://badges.greenkeeper.io/tjenkinson/url-toolkit.svg)](https://greenkeeper.io/)
 
 # URL Toolkit
 Lightweight library to build an absolute URL from a base URL and a relative URL, written from [the spec (RFC 1808)](https://tools.ietf.org/html/rfc1808). Initially part of [HLS.JS](https://github.com/dailymotion/hls.js).
