@@ -8,9 +8,12 @@
     "test": "test"
   },
   "scripts": {
-    "pretest": "npm run lint",
     "test": "mocha --recursive test",
-    "lint": "jshint src/ test/"
+    "prettier": "prettier --write .",
+    "lint": "prettier --check ."
+  },
+  "hooks": {
+    "pre-commit": "npm run prettier"
   },
   "repository": {
     "type": "git",
@@ -29,7 +32,8 @@
   },
   "homepage": "https://github.com/tjenkinson/url-toolkit#readme",
   "devDependencies": {
-    "jshint": "^2.9.6",
-    "mocha": "^7.0.1"
+    "husky": "^4.2.5",
+    "mocha": "^7.0.1",
+    "prettier": "^2.0.5"
   }
 }
