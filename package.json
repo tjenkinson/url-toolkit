@@ -5,7 +5,7 @@
   "main": "src/url-toolkit.js",
   "types": "src/url-toolkit.d.ts",
   "scripts": {
-    "test": "mocha --recursive test",
+    "test": "jest",
     "prettier": "prettier --write .",
     "lint": "prettier --check ."
   },
@@ -30,7 +30,7 @@
   "homepage": "https://github.com/tjenkinson/url-toolkit#readme",
   "devDependencies": {
     "husky": "^4.2.5",
-    "mocha": "^7.0.1",
+    "jest": "^26.0.1",
     "prettier": "^2.0.5"
   }
 }
