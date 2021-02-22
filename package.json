@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/tjenkinson/url-toolkit#readme",
   "devDependencies": {
-    "husky": "^4.2.5",
+    "husky": "^5.1.0",
     "jest": "^26.0.1",
     "prettier": "^2.0.5"
   }
