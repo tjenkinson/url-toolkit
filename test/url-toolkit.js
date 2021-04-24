@@ -293,6 +293,8 @@ describe('url toolkit', () => {
 
     test('http://0.0.0.0/a/b.c', 'd', 'http://0.0.0.0/a/d');
     test('http://[0:0:0:0::0]/a/b.c', 'd', 'http://[0:0:0:0::0]/a/d');
+
+    test('http://example.com/', 'a#\nb', 'http://example.com/a#\nb');
   });
 });
 
