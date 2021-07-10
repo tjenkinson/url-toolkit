@@ -1,4 +1,3 @@
-const assert = require('assert');
 const URLToolkit = require('../src/url-toolkit');
 
 describe('url toolkit', () => {
@@ -295,15 +294,26 @@ describe('url toolkit', () => {
     test('http://[0:0:0:0::0]/a/b.c', 'd', 'http://[0:0:0:0::0]/a/d');
 
     test('http://example.com/', 'a#\nb', 'http://example.com/a#\nb');
+
+    // in the URL living standard (https://url.spec.whatwg.org/)
+    // `http` is a 'special scheme', and that results in
+    // the `///` becoming `//`, meaning `netLoc` would essentially be
+    // `//example.com` instead of `//`
+    // This library is specifically RFC 1808, which does not have these
+    // special cases.
+    test('http:///example.com/a/', '../../b', 'http:///b');
   });
 });
 
 function test(base, relative, expected, opts) {
   opts = opts || {};
   it(`"${base}" + "${relative}" ${JSON.stringify(opts)}`, () => {
-    assert.strictEqual(
-      URLToolkit.buildAbsoluteURL(base, relative, opts),
-      expected
+    expect(URLToolkit.parseURL(base)).toMatchSnapshot();
+    expect(URLToolkit.parseURL(relative)).toMatchSnapshot();
+    expect(URLToolkit.buildURLFromParts(URLToolkit.parseURL(relative))).toBe(
+      relative
     );
+    expect(URLToolkit.buildURLFromParts(URLToolkit.parseURL(base))).toBe(base);
+    expect(URLToolkit.buildAbsoluteURL(base, relative, opts)).toBe(expected);
   });
 }
