@@ -7,7 +7,8 @@
   "scripts": {
     "test": "jest",
     "prettier": "prettier --write .",
-    "lint": "prettier --check ."
+    "lint": "prettier --check .",
+    "prepare": "husky install"
   },
   "hooks": {
     "pre-commit": "npm run prettier"
@@ -29,7 +30,7 @@
   },
   "homepage": "https://github.com/tjenkinson/url-toolkit#readme",
   "devDependencies": {
-    "husky": "^4.2.5",
+    "husky": "^7.0.1",
     "jest": "^27.0.6",
     "prettier": "^2.0.5"
   }
