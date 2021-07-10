@@ -1,4 +1,3 @@
-const assert = require('assert');
 const URLToolkit = require('../src/url-toolkit');
 
 describe('url toolkit', () => {
@@ -301,9 +300,12 @@ describe('url toolkit', () => {
 function test(base, relative, expected, opts) {
   opts = opts || {};
   it(`"${base}" + "${relative}" ${JSON.stringify(opts)}`, () => {
-    assert.strictEqual(
-      URLToolkit.buildAbsoluteURL(base, relative, opts),
-      expected
+    expect(URLToolkit.parseURL(base)).toMatchSnapshot();
+    expect(URLToolkit.parseURL(relative)).toMatchSnapshot();
+    expect(URLToolkit.buildURLFromParts(URLToolkit.parseURL(relative))).toBe(
+      relative
     );
+    expect(URLToolkit.buildURLFromParts(URLToolkit.parseURL(base))).toBe(base);
+    expect(URLToolkit.buildAbsoluteURL(base, relative, opts)).toBe(expected);
   });
 }
