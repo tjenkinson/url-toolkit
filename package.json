@@ -7,7 +7,8 @@
   "scripts": {
     "test": "jest",
     "prettier": "prettier --write .",
-    "lint": "prettier --check ."
+    "lint": "prettier --check .",
+    "prepare": "husky install"
   },
   "hooks": {
     "pre-commit": "npm run prettier"
