@@ -4,6 +4,14 @@
 
 Lightweight library to build an absolute URL from a base URL and a relative URL, written from [the spec (RFC 1808)](https://tools.ietf.org/html/rfc1808). Initially part of [HLS.JS](https://github.com/dailymotion/hls.js).
 
+## Differences to JS `URL()`
+
+The JS [URL()](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) function also lets you calculate a new URL from a base and relative one.
+
+That uses the [URL Living Standard](https://url.spec.whatwg.org/) which is slightly different to [RFC 1808](https://tools.ietf.org/html/rfc1808) that this library implements.
+
+One of the key differences is that the [URL Living Standard](https://url.spec.whatwg.org/) has the concept of a ['special url'](https://url.spec.whatwg.org/#is-special) and ['special scheme'](https://url.spec.whatwg.org/#special-scheme). For these special URL's, such as a URL with the `http` scheme, they normalise them in a way that results in `http:///example.com/something` becoming `http://example.com/something`. This library does not do that and [`parseURL()`](#parseurlurl) would give you `//` as the `netLoc` and `/example.com` as the path.
+
 ## Methods
 
 ### `buildAbsoluteURL(baseURL, relativeURL, opts={})`
