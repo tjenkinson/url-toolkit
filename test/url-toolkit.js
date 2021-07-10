@@ -294,6 +294,14 @@ describe('url toolkit', () => {
     test('http://[0:0:0:0::0]/a/b.c', 'd', 'http://[0:0:0:0::0]/a/d');
 
     test('http://example.com/', 'a#\nb', 'http://example.com/a#\nb');
+
+    // in the URL living standard (https://url.spec.whatwg.org/)
+    // `http` is a 'special scheme', and that results in
+    // the `///` becoming `//`, meaning `netLoc` would essentially be
+    // `//example.com` instead of `//`
+    // This library is specifically RFC 1808, which does not have these
+    // special cases.
+    test('http:///example.com/a/', '../../b', 'http:///b');
   });
 });
 

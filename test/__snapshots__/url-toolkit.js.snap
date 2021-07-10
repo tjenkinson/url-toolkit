@@ -462,6 +462,28 @@ Object {
 }
 `;
 
+exports[`url toolkit works with a selection of valid urls "http:///example.com/a/" + "../../b" {} 1`] = `
+Object {
+  "fragment": "",
+  "netLoc": "//",
+  "params": "",
+  "path": "/example.com/a/",
+  "query": "",
+  "scheme": "http:",
+}
+`;
+
+exports[`url toolkit works with a selection of valid urls "http:///example.com/a/" + "../../b" {} 2`] = `
+Object {
+  "fragment": "",
+  "netLoc": "",
+  "params": "",
+  "path": "../../b",
+  "query": "",
+  "scheme": "",
+}
+`;
+
 exports[`url toolkit works with a selection of valid urls "http://[0:0:0:0::0]/a/b.c" + "d" {} 1`] = `
 Object {
   "fragment": "",
