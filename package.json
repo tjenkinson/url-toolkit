@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "prettier": "prettier --write .",
-    "lint": "prettier --check .",
+    "lint": "eslint 'src/**/*.js' && prettier --check .",
     "prepare": "husky install"
   },
   "hooks": {
@@ -30,6 +30,8 @@
   },
   "homepage": "https://github.com/tjenkinson/url-toolkit#readme",
   "devDependencies": {
+    "eslint": "^8.8.0",
+    "eslint-plugin-redos-detector": "^1.0.1",
     "husky": "^7.0.1",
     "jest": "^27.0.6",
     "prettier": "^2.0.5"
