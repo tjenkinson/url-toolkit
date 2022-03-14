@@ -1,8 +1,21 @@
 // see https://tools.ietf.org/html/rfc1808
 
 (function (root) {
-  var URL_REGEX =
-    /^(?=((?:[a-zA-Z0-9+\-.]+:)?))\1(?=((?:\/\/[^\/?#]*)?))\2(?=((?:(?:[^?#\/]*\/)*[^;?#\/]*)?))\3((?:;[^?#]*)?)(\?[^#]*)?(#[^]*)?$/;
+  var SCHEME_REGEX = /^[a-zA-Z0-9+\-.]+:/;
+  var NETLOC_REGEX = /^\/\/[^\/?#]*/;
+  var PATH_REGEX = /^(?=((?:[^?#\/]*\/)*))\1[^;?#\/]*/;
+  var PARAMS_REGEX = /^;[^?#]*/;
+  var QUERY_REGEX = /^\?[^#]*/;
+  var FRAGMENT_REGEX = /^#[^]*/;
+  var URL_REGEX = [
+    SCHEME_REGEX,
+    NETLOC_REGEX,
+    PATH_REGEX,
+    PARAMS_REGEX,
+    QUERY_REGEX,
+    FRAGMENT_REGEX,
+  ];
+
   var FIRST_SEGMENT_REGEX = /^(?=([^\/?#]*))\1([^]*)$/;
   var SLASH_DOT_REGEX = /(?:\/|^)\.(?=\/)/g;
   var SLASH_DOT_DOT_REGEX = /(?:\/|^)\.\.\/(?!\.\.\/)[^\/]*(?=\/)/g;
@@ -117,17 +130,23 @@
       return URLToolkit.buildURLFromParts(builtParts);
     },
     parseURL: function (url) {
-      var parts = URL_REGEX.exec(url);
-      if (!parts) {
-        return null;
-      }
+      var remainder = url;
+      var results = URL_REGEX.map(function (regex) {
+        var res = regex.exec(remainder);
+        if (res) {
+          remainder = remainder.slice(res[0].length);
+          return res[0];
+        }
+        return '';
+      });
+
       return {
-        scheme: parts[1] || '',
-        netLoc: parts[2] || '',
-        path: parts[3] || '',
-        params: parts[4] || '',
-        query: parts[5] || '',
-        fragment: parts[6] || '',
+        scheme: results[0],
+        netLoc: results[1],
+        path: results[2],
+        params: results[3],
+        query: results[4],
+        fragment: results[5],
       };
     },
     normalizePath: function (path) {
