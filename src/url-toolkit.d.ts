@@ -12,7 +12,7 @@ export type URLParts = {
 export function buildAbsoluteURL(
   baseURL: string,
   relativeURL: string,
-  opts?: { alwaysNormalize?: boolean }
+  opts?: { alwaysNormalize?: boolean },
 ): string;
 
 export function parseURL(url: string): URLParts | null;

@@ -31,7 +31,7 @@
           throw new Error('Error trying to parse base URL.');
         }
         basePartsForNormalise.path = URLToolkit.normalizePath(
-          basePartsForNormalise.path
+          basePartsForNormalise.path,
         );
         return URLToolkit.buildURLFromParts(basePartsForNormalise);
       }

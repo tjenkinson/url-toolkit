@@ -72,7 +72,7 @@ Puts all the parts from `parseURL()` back together into a string.
 var URLToolkit = require('url-toolkit');
 var url = URLToolkit.buildAbsoluteURL(
   'https://a.com/b/cd/e.m3u8?test=1#something',
-  '../z.ts?abc=1#test'
+  '../z.ts?abc=1#test',
 );
 console.log(url); // 'https://a.com/b/z.ts?abc=1#test'
 ```
@@ -90,7 +90,7 @@ This can also be used in the browser thanks to [jsDelivr](https://github.com/jsd
   <script type="text/javascript">
     var url = URLToolkit.buildAbsoluteURL(
       'https://a.com/b/cd/e.m3u8?test=1#something',
-      '../z.ts?abc=1#test'
+      '../z.ts?abc=1#test',
     );
     console.log(url); // 'https://a.com/b/z.ts?abc=1#test'
   </script>

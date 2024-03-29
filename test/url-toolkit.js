@@ -49,32 +49,32 @@ describe('url toolkit', () => {
     test(
       'http://a.com/b/cd/./e.m3u8?test=1#something',
       '',
-      'http://a.com/b/cd/./e.m3u8?test=1#something'
+      'http://a.com/b/cd/./e.m3u8?test=1#something',
     );
     test(
       'http://a.com/b/cd/./e.m3u8?test=1#something',
       '',
       'http://a.com/b/cd/e.m3u8?test=1#something',
-      { alwaysNormalize: true }
+      { alwaysNormalize: true },
     );
 
     test(
       'http://a.com/b/cd/e.m3u8',
       'https://example.com/z.ts',
-      'https://example.com/z.ts'
+      'https://example.com/z.ts',
     );
     test('http://a.com/b/cd/e.m3u8', 'g:h', 'g:h');
     test(
       'http://a.com/b/cd/e.m3u8',
       'https://example.com:8080/z.ts',
-      'https://example.com:8080/z.ts'
+      'https://example.com:8080/z.ts',
     );
 
     test('http://a.com/b/cd/e.m3u8', 'z.ts', 'http://a.com/b/cd/z.ts');
     test(
       'http://a.com:8080/b/cd/e.m3u8',
       'z.ts',
-      'http://a.com:8080/b/cd/z.ts'
+      'http://a.com:8080/b/cd/z.ts',
     );
     test('http://a.com/b/cd/', 'z.ts', 'http://a.com/b/cd/z.ts');
     test('http://a.com/b/cd', 'z.ts', 'http://a.com/b/z.ts');
@@ -88,17 +88,17 @@ describe('url toolkit', () => {
     test(
       'http://a.com/b/cd?test=1#something',
       'z.ts?abc=1',
-      'http://a.com/b/z.ts?abc=1'
+      'http://a.com/b/z.ts?abc=1',
     );
     test(
       'http://a.com/b/cd?test=1#something',
       'z.ts#test',
-      'http://a.com/b/z.ts#test'
+      'http://a.com/b/z.ts#test',
     );
     test(
       'http://a.com/b/cd?test=1#something',
       'z.ts?abc=1#test',
-      'http://a.com/b/z.ts?abc=1#test'
+      'http://a.com/b/z.ts?abc=1#test',
     );
 
     test('http://a.com/b/cd?test=1#something', ';x', 'http://a.com/b/cd;x');
@@ -119,120 +119,120 @@ describe('url toolkit', () => {
     test(
       'http://a.com/b/cd/e.m3u8?test=1#something',
       'subdir/z.ts?abc=1#test',
-      'http://a.com/b/cd/subdir/z.ts?abc=1#test'
+      'http://a.com/b/cd/subdir/z.ts?abc=1#test',
     );
     test(
       'http://a.com/b/cd/e.m3u8?test=1#something',
       '/subdir/z.ts?abc=1#test',
-      'http://a.com/subdir/z.ts?abc=1#test'
+      'http://a.com/subdir/z.ts?abc=1#test',
     );
     test(
       'http://a.com/b/cd/e.m3u8?test=1#something',
       '//example.com/z.ts?abc=1#test',
-      'http://example.com/z.ts?abc=1#test'
+      'http://example.com/z.ts?abc=1#test',
     );
     test(
       'https://a.com/b/cd/e.m3u8?test=1#something',
       '//example.com/z.ts?abc=1#test',
-      'https://example.com/z.ts?abc=1#test'
+      'https://example.com/z.ts?abc=1#test',
     );
     test(
       'https://a.com/b/cd/e.m3u8?test=1#something',
       './z.ts?abc=1#test',
-      'https://a.com/b/cd/z.ts?abc=1#test'
+      'https://a.com/b/cd/z.ts?abc=1#test',
     );
     test(
       'https://a.com/b/cd/e.m3u8?test=1#something',
       '../z.ts?abc=1#test',
-      'https://a.com/b/z.ts?abc=1#test'
+      'https://a.com/b/z.ts?abc=1#test',
     );
     test(
       'https://a.com/b/cd/e.m3u8?test=1#something',
       './../z.ts?abc=1#test',
-      'https://a.com/b/z.ts?abc=1#test'
+      'https://a.com/b/z.ts?abc=1#test',
     );
     test(
       'https://a.com/b/cd/e.m3u8?test=1#something',
       '././z.ts?abc=1#test',
-      'https://a.com/b/cd/z.ts?abc=1#test'
+      'https://a.com/b/cd/z.ts?abc=1#test',
     );
     test(
       'https://a.com/b/cd/e/f.m3u8?test=1#something',
       '../../z.ts?abc=1#test',
-      'https://a.com/b/z.ts?abc=1#test'
+      'https://a.com/b/z.ts?abc=1#test',
     );
     test(
       'https://a.com/b/cd/e.m3u8?test=1#something',
       '../../z.ts?abc=1#test',
-      'https://a.com/z.ts?abc=1#test'
+      'https://a.com/z.ts?abc=1#test',
     );
     test(
       'https://a.com/b/cd/e.m3u8?test=1#something',
       '../../z.ts?abc=1&something=blah/./../test#test',
-      'https://a.com/z.ts?abc=1&something=blah/./../test#test'
+      'https://a.com/z.ts?abc=1&something=blah/./../test#test',
     );
     test(
       'https://a.com/b/cd/e/f.m3u8?test=1#something',
       './../../z.ts?abc=1#test',
-      'https://a.com/b/z.ts?abc=1#test'
+      'https://a.com/b/z.ts?abc=1#test',
     );
 
     test(
       'https://a.com/b/cd/e.m3u8?test=1#something',
       'subdir/pointless/../z.ts?abc=1#test',
-      'https://a.com/b/cd/subdir/z.ts?abc=1#test'
+      'https://a.com/b/cd/subdir/z.ts?abc=1#test',
     );
     test(
       'https://a.com/b/cd/e.m3u8?test=1#something',
       '/subdir/pointless/../z.ts?abc=1#test',
       'https://a.com/subdir/z.ts?abc=1#test',
-      { alwaysNormalize: true }
+      { alwaysNormalize: true },
     );
     test(
       'https://a.com/b/cd/e.m3u8?test=1#something',
       '/subdir/pointless/../z.ts?abc=1#test',
-      'https://a.com/subdir/pointless/../z.ts?abc=1#test'
+      'https://a.com/subdir/pointless/../z.ts?abc=1#test',
     );
     test(
       'https://a.com/b/cd/e.m3u8?test=1#something',
       '//example.com/subdir/pointless/../z.ts?abc=1#test',
       'https://example.com/subdir/z.ts?abc=1#test',
-      { alwaysNormalize: true }
+      { alwaysNormalize: true },
     );
     test(
       'https://a.com/b/cd/e.m3u8?test=1#something',
       '//example.com/subdir/pointless/../z.ts?abc=1#test',
-      'https://example.com/subdir/pointless/../z.ts?abc=1#test'
+      'https://example.com/subdir/pointless/../z.ts?abc=1#test',
     );
 
     test(
       'https://a-b.something.com/b/cd/e.m3u8?test=1#something',
       '//example.com/subdir/pointless/../z.ts?abc=1#test',
       'https://example.com/subdir/z.ts?abc=1#test',
-      { alwaysNormalize: true }
+      { alwaysNormalize: true },
     );
     test(
       'https://a-b.something.com/b/cd/e.m3u8?test=1#something',
       '//example.com/subdir/pointless/../z.ts?abc=1#test',
-      'https://example.com/subdir/pointless/../z.ts?abc=1#test'
+      'https://example.com/subdir/pointless/../z.ts?abc=1#test',
     );
 
     test(
       '//a.com/b/cd/e.m3u8',
       'https://example.com/z.ts',
-      'https://example.com/z.ts'
+      'https://example.com/z.ts',
     );
     test('//a.com/b/cd/e.m3u8', '//example.com/z.ts', '//example.com/z.ts');
     test(
       '//a.com/b/cd/e.m3u8',
       '/example.com/z.ts',
-      '//a.com/example.com/z.ts'
+      '//a.com/example.com/z.ts',
     );
     test('//a.com/b/cd/e.m3u8', 'g:h', 'g:h');
     test(
       '//a.com/b/cd/e.m3u8',
       'https://example.com:8080/z.ts',
-      'https://example.com:8080/z.ts'
+      'https://example.com:8080/z.ts',
     );
     test('//a.com/b/cd/e.m3u8', 'z.ts', '//a.com/b/cd/z.ts');
     test('//a.com/b/cd/e.m3u8', '../../z.ts', '//a.com/z.ts');
@@ -242,7 +242,7 @@ describe('url toolkit', () => {
     test(
       '/a/b/cd/e.m3u8',
       'https://example.com/z.ts',
-      'https://example.com/z.ts'
+      'https://example.com/z.ts',
     );
     test('/a/b/cd/e.m3u8', '/example.com/z.ts', '/example.com/z.ts');
     test('/a/b/cd/e.m3u8', '//example.com/z.ts', '//example.com/z.ts');
@@ -250,7 +250,7 @@ describe('url toolkit', () => {
     test(
       '/a/b/cd/e.m3u8',
       'https://example.com:8080/z.ts',
-      'https://example.com:8080/z.ts'
+      'https://example.com:8080/z.ts',
     );
     test('/a/b/cd/e.m3u8', 'z.ts', '/a/b/cd/z.ts');
     test('/a/b/cd/e.m3u8', '../../../z.ts', '/z.ts');
@@ -269,25 +269,25 @@ describe('url toolkit', () => {
     test(
       'http://a.com/b/cd/e.m3u8?test=1#something',
       '',
-      'http://a.com/b/cd/e.m3u8?test=1#something'
+      'http://a.com/b/cd/e.m3u8?test=1#something',
     );
 
     test(
       'http://a.com/b/cd/e.m3u8?test=1#something',
       'a_:b',
-      'http://a.com/b/cd/a_:b'
+      'http://a.com/b/cd/a_:b',
     );
     test('http://a.com/b/cd/e.m3u8?test=1#something', 'a:b', 'a:b');
     test(
       'http://a.com/b/cd/e.m3u8?test=1#something',
       './a:b',
-      'http://a.com/b/cd/a:b'
+      'http://a.com/b/cd/a:b',
     );
 
     test(
       'http://a.com/expiretime=111;dirmatch=true/master.m3u8',
       './a:b',
-      'http://a.com/expiretime=111;dirmatch=true/a:b'
+      'http://a.com/expiretime=111;dirmatch=true/a:b',
     );
 
     test('http://0.0.0.0/a/b.c', 'd', 'http://0.0.0.0/a/d');
@@ -311,7 +311,7 @@ function test(base, relative, expected, opts) {
     expect(URLToolkit.parseURL(base)).toMatchSnapshot();
     expect(URLToolkit.parseURL(relative)).toMatchSnapshot();
     expect(URLToolkit.buildURLFromParts(URLToolkit.parseURL(relative))).toBe(
-      relative
+      relative,
     );
     expect(URLToolkit.buildURLFromParts(URLToolkit.parseURL(base))).toBe(base);
     expect(URLToolkit.buildAbsoluteURL(base, relative, opts)).toBe(expected);
