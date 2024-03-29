@@ -1,6 +1,6 @@
 {
   "plugins": ["redos-detector"],
   "rules": {
-    "redos-detector/no-unsafe-regex": "error"
+    "redos-detector/no-unsafe-regex": ["error", { "maxSteps": 30000 }]
   }
 }
