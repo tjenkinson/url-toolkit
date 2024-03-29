@@ -1,5 +1,8 @@
 {
   "plugins": ["redos-detector"],
+  "parserOptions": {
+    "ecmaVersion": 2019
+  },
   "rules": {
     "redos-detector/no-unsafe-regex": ["error", { "maxSteps": 30000 }]
   }
