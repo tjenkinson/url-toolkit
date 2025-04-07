@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/tjenkinson/url-toolkit#readme",
   "devDependencies": {
-    "eslint": "^8.8.0",
+    "eslint": "^9.24.0",
     "eslint-plugin-redos-detector": "^2.4.0",
     "husky": "^9.0.10",
     "jest": "^29.7.0",
